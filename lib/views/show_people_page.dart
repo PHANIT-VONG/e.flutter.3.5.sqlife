@@ -1,6 +1,7 @@
 import 'package:e_flutte_sqlife3_5/controllers/people_controller.dart';
 import 'package:e_flutte_sqlife3_5/models/people_model.dart';
 import 'package:e_flutte_sqlife3_5/views/create_people_page.dart';
+import 'package:e_flutte_sqlife3_5/views/detail_people_page.dart';
 import 'package:flutter/material.dart';
 
 class ShowPeoplePage extends StatefulWidget {
@@ -47,6 +48,14 @@ class _ShowPeoplePageState extends State<ShowPeoplePage> {
             var data = list[index];
             return Card(
               child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => DetailPeoplePage(peopleModel: data),
+                    ),
+                  );
+                },
                 leading: CircleAvatar(
                   child: Text(data.id.toString()),
                 ),
